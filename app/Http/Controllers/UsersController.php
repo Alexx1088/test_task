@@ -44,11 +44,11 @@ class UsersController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(User $user)
     {
-        return view('show');
+             return view('show', compact('user'));
     }
 
     /**

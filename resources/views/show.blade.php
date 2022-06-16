@@ -11,9 +11,14 @@
             <li class="list-group-item">Email: {{ $user->email }}</li>
             <li class="list-group-item">Created: {{ $user->created_at }}</li>
             <li class="list-group-item">Updated: {{ $user->updated_at }}</li>
-
-
         </ul>
     </div>
-    <a type="button" class="btn btn-warning mt-3" href=" {{ route('users.edit', $user) }}">Edit</a>
+    <form class="mt-3" action="{{ route('users.destroy', $user) }}" method="POST">
+        <a type="button" class="btn btn-warning"
+           href=" {{ route('users.edit', $user) }}">Edit</a>
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+
 @endsection
